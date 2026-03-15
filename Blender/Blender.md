@@ -182,7 +182,7 @@ Change the workspace to **Shading** (top tab).
 <tr><td><img src="Images/Blender_step19.png" style="width:100%; height:auto;"></td></tr>
 </table>
 
-### 16. Importing PBR Textures (Wood035)
+### 16. Importing PBR Textures
 Select the **Principled BSDF** node.  
 Press **Ctrl + Shift + T**.  
 Navigate to the unpacked `Wood035` folder from [ambientcg.com](https://ambientcg.com/view?id=Wood035) and select all texture files.  
@@ -255,3 +255,209 @@ Hide the collection with the eye icon (we will use it later).
 
 **Chapter complete.**  
 The barrel lid is now fully modeled, separated, UV-unwrapped, and textured with high-quality PBR wood material – ready for the barrel body in the next chapter.
+
+## Chapter 2: Creating the Barrel Body in Blender
+
+The barrel body forms the main cylindrical container of the barrel. This chapter follows a similar workflow to the lid but extrudes vertically, adds curvature for the classic barrel shape, and applies consistent PBR texturing.
+
+All steps were performed with **Metric** units (millimeters) for game-ready scale.
+
+### 1. Adding the Base Circle
+In **Object Mode**, press **Shift + A** → **Mesh** → **Circle**.  
+This creates the circular base for the barrel body.
+
+<table>
+<tr><th width="100%">Adding the base circle for the body</th></tr>
+<tr><td><img src="Images/Blender_step1.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 2. Extruding Vertically
+Enter **Edit Mode** (**Tab**).  
+Switch to **Edge Select** mode (**2**).  
+Press **A** to select all edges.  
+Press **E** to extrude and drag upward (or type the desired height) to form the basic cylinder.
+
+<table>
+<tr><th width="100%">Extruding the circle vertically</th></tr>
+<tr><td><img src="Images/Blender_step28.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 3. Adding Thickness with Solidify
+In **Object Mode**, add the **Solidify** modifier.  
+Set **Thickness** to your desired wall thickness (e.g., 5 mm).  
+Apply the modifier in **Object Mode**.
+
+<table>
+<tr><th width="100%">Solidify modifier applied to the body</th></tr>
+<tr><td><img src="Images/Blender_step29.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 4. Adding Bevel Detail to Planks
+Switch to **Edit Mode** and **Edge Select** mode.  
+Select every second vertical edge loop (both outer and inner).  
+Press **Ctrl + B** to bevel and adjust width/segments as with the lid.
+
+<table>
+<tr><th width="100%">Beveling selected edges on the body</th></tr>
+<tr><td><img src="Images/Blender_step30.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 5. Removing Inner Faces from Bevel
+Switch to **Face Select** mode (**3**).  
+Select all newly created inner faces from the bevel.  
+Press **X** → **Faces** to delete them.
+
+<table>
+<tr><th width="100%">Deleting inner bevel faces</th></tr>
+<tr><td><img src="Images/Blender_step31.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 6. Separating Plank Sections
+Select one vertical plank section (face loop).  
+Press **P** → **Selection** to separate into a new object.  
+Repeat for all planks.
+
+<table>
+<tr><th width="100%">Separating body planks</th></tr>
+<tr><td><img src="Images/Blender_step32.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 7. Organizing into Collection
+Create a new Collection named **BarrelBody**.  
+Move all separated plank objects into it.
+
+<table>
+<tr><th width="100%">BarrelBody collection in Outliner</th></tr>
+<tr><td><img src="Images/Blender_step33.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 8. Closing Missing Edges
+In **Edit Mode** for each plank, select the three missing edge pairs (top, middle, bottom) one by one.  
+Press **F** to create each edge.  
+Repeat for all planks.
+
+<table>
+<tr><th width="100%">Connecting missing edges</th></tr>
+<tr><td><img src="Images/Blender_step34.png" style="width:100%; height:auto;"></td></tr>
+</table>
+<table>
+
+### 9. Applying the Wood Material
+Select one plank and ensure it has the **Wood** material.
+
+<table>
+<tr><th width="100%">Adding wood Material</th></tr>
+<tr><td><img src="Images/Blender_step36.png" style="width:100%; height:auto;"></td></tr>
+</table>
+<table>
+
+Select **all** body objects (keep the material object active – orange outline).  
+Press **Ctrl + L** → **Link Materials**.
+
+<table>
+<tr><th width="50%">Selecting all body objects</th><th width="50%">Link Materials menu</th></tr>
+<tr>
+<td><img src="Images/Blender_step37.png" style="width:100%; height:auto;"></td>
+<td><img src="Images/Blender_step38.png" style="width:100%; height:auto;"></td>
+</tr>
+</table>
+
+### 10. Initial UV Unwrapping
+Select all body objects → **Edit Mode**.  
+Press **A** to select all faces.  
+Right-click → **UV** → **Unwrap Faces** → **Smart UV Project**.
+
+<table>
+<tr><th width="100%">Smart UV Project on body</th></tr>
+<tr><td><img src="Images/Blender_step39.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 11. Fixing Top & Bottom UV Orientation
+Select only the top and bottom ring faces.  
+Re-unwrap using **Smart UV Project** but set **Rotation Method** to **Axis-aligned (Vertical)**.
+
+<table>
+<tr><th width="50%">Changing rotation to Vertical</th><th width="50%">Vertical UV result</th></tr>
+<tr>
+<td><img src="Images/Blender_step40.png" style="width:100%; height:auto;"></td>
+<td><img src="Images/Blender_step41.png" style="width:100%; height:auto;"></td>
+</tr>
+</table>
+
+**Result:** Wood grain now aligns correctly on top/bottom rings.
+
+<table>
+<tr><th width="100%">Improved UV appearance</th></tr>
+<tr><td><img src="Images/Blender_step42.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 12. Adding Horizontal Subdivision for Curvature
+Select all body objects → **Edit Mode**.  
+Right-click → **Subdivide**.  
+
+<table>
+<tr><th width="100%">Subdividing for horizontal loops</th></tr>
+<tr><td><img src="Images/Blender_step43.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+Set **Number of Cuts** to 4 (creates 4 horizontal edge loops).
+
+<table>
+<tr><th width="100%">Applied subdivision</th></tr>
+<tr><td><img src="Images/Blender_step44.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 13. Scaling Loops for Barrel Shape
+Select the horizontal edge loops.  
+Press **S** to scale them inward/outward to create the classic barrel bulge.  
+
+<table>
+<tr><th width="100%">Scaling all loops</th></tr>
+<tr><td><img src="Images/Blender_step45.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+Repeat on inner loops for smoother curvature.
+
+<table>
+<tr><th width="100%">Scaling middle loops</th></tr>
+<tr><td><img src="Images/Blender_step46.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+**Result:** The body now has a realistic convex barrel shape.
+
+<table>
+<tr><th width="100%">Final barrel curvature</th></tr>
+<tr><td><img src="Images/Blender_step47.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 14. Positioning the Bottom Lid
+Show the **BarrelLid** collection.  
+Select the bottom lid objects.  
+Move them upward along Z-axis to align with the body bottom.
+
+<table>
+<tr><th width="100%">Positioning bottom lid on body</th></tr>
+<tr><td><img src="Images/Blender_step48.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 15. Duplicating Lid for Top Closure
+Select the bottom lid objects.  
+Press **Shift + D** to duplicate.  
+Move the copy upward along Z-axis to close the top.
+
+<table>
+<tr><th width="100%">Duplicating and positioning top lid</th></tr>
+<tr><td><img src="Images/Blender_step49.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 16. Final Organization
+Create sub-collections if needed (e.g., **BarrelLidBottom** and **BarrelLidTop**).  
+Move the corresponding lid objects into them for clarity.
+
+<table>
+<tr><th width="100%">Organized collections with lids and body</th></tr>
+<tr><td><img src="Images/Blender_step50.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+**Chapter complete.**  
+The barrel body is now modeled with realistic curvature, separated planks, proper UV mapping, and consistent wood texturing. Both lids are positioned, completing the basic barrel assembly – ready for metal hoops or final refinements in the next chapter.
