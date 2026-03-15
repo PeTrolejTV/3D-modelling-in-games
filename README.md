@@ -23,7 +23,7 @@ In Blender, the workflow focused on modular construction, separating the barrel 
 
 **Screenshots**
 
-![Blender Step](images/blender_step1.png)
+![Blender Step](Blender/Images/Blender_step70.png)
 
 **Export Settings**
 
@@ -31,7 +31,7 @@ In Blender, the workflow focused on modular construction, separating the barrel 
 - Scale: 1.0  
 - Triangulated: Yes  
 
-**Full Modeling Documentation:** [Blender Detailed Workflow](Blender.md)
+**Full Modeling Documentation:** [Blender Detailed Workflow](Blender/Blender.md)
 
 </details>
 
@@ -49,7 +49,7 @@ Dust3D enables fast low-poly modeling using procedural skeleton-based mesh gener
 4. Apply UV unwrapping and textures
 5. Export FBX for Unity
 
-**Full Modeling Documentation:** [Dust3D Detailed Workflow](Dust3D.md)
+**Full Modeling Documentation:** [Dust3D Detailed Workflow](Dust3D/Dust3D.md)
 
 </details>
 
@@ -67,7 +67,7 @@ Wings3D was used for low-poly construction of props, emphasizing clean topology 
 4. Apply materials manually
 5. Export OBJ/FBX for Unity
 
-**Full Modeling Documentation:** [Wings3D Detailed Workflow](Wings3D.md)
+**Full Modeling Documentation:** [Wings3D Detailed Workflow](Wings3D/Wings3D.md)
 
 </details>
 
@@ -85,7 +85,7 @@ Maya workflow focused on precise control and high-poly detailing for comparison 
 4. Texturing and UV setup
 5. Export FBX with triangulation
 
-**Full Modeling Documentation:** [Maya Detailed Workflow](Maya.md)
+**Full Modeling Documentation:** [Maya Detailed Workflow](Maya/Maya.md)
 
 </details>
 
