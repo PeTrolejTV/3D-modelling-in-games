@@ -4,6 +4,7 @@
 Game Object Model: Barrel
 
 Blender
+[Blender](Blender.md)
 
 Start with the Barrels Lids.
 
