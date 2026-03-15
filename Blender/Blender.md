@@ -150,7 +150,7 @@ Do **not** select everything at once – it would create incorrect faces.
 <tr><td><img src="Images/Blender_step15.png" style="width:100%; height:auto;"></td></tr>
 </table>
 
-### 13. Creating the Wood Material (on one object only)
+### 13. Creating the Wood Material
 Select **one** lid object.  
 In the **Material Properties** panel, click **New**.  
 Rename the material to **Wood**.
@@ -236,12 +236,12 @@ Recommended settings:
 
 Click **Unwrap**.
 
-**Result:** Perfectly aligned wood grain.
-
 <table>
 <tr><th width="100%">Final textured lid</th></tr>
 <tr><td><img src="Images/Blender_step26.png" style="width:100%; height:auto;"></td></tr>
 </table>
+
+**Result:** Perfectly aligned wood grain.
 
 ### 19. Organizing the Project
 Create a new Collection named **BarrelLid**.  
@@ -559,8 +559,8 @@ In the **Material Properties** panel, click **New** and name it **Steel**.
 Switch to the **Shading** workspace.  
 Select the **Principled BSDF** node.  
 Press **Ctrl + Shift + T**.  
-Navigate to the unpacked Metal052C folder and select all texture files.  
-Click **Principled Texture Setup** to auto-connect them.
+Navigate to the unpacked `Metal052C` folder from [ambientcg.com](https://ambientcg.com/view?id=Metal052C) and select all texture files.  
+Click **Principled Texture Setup**.
 
 <table>
 <tr><th width="50%">Selecting Metal052C texture files</th><th width="50%">Automatic Principled Texture Setup</th></tr>
@@ -586,16 +586,14 @@ Press **A** to select all faces.
 Right-click → **UV** → **Unwrap Faces** → **Cube Projection** (gives clean results on ring geometry).
 
 <table>
-<tr><th width="100%">Cube Projection UV unwrap for hoops</th></tr>
-<tr><td><img src="Images/Blender_step62.png" style="width:100%; height:auto;"></td></tr>
+<tr><th width="50%">Cube Projection UV unwrap for hoops</th><th width="50%">Final textured hoops</th></tr>
+<tr>
+<td><img src="Images/Blender_step62.png" style="width:100%; height:auto;"></td>
+<td><img src="Images/Blender_step63.png" style="width:100%; height:auto;"></td>
+</tr>
 </table>
 
 **Result:** Perfectly aligned Metal grain.
-
-<table>
-<tr><th width="100%">Final textured hoops</th></tr>
-<tr><td><img src="Images/Blender_step63.png" style="width:100%; height:auto;"></td></tr>
-</table>
 
 ### 13. Final Organization
 Create a new Collection named **BarrelHoops**.  
@@ -609,3 +607,105 @@ Hide/show collections as needed to keep the Outliner clean.
 
 **Chapter complete.**  
 The metal hoops are now modeled, textured with high-quality PBR steel, UV unwrapped using Cube Projection, and organized in the scene. The barrel now has its iconic banded appearance – ready for final assembly tweaks, lighting, or export in the next steps.
+
+## Chapter 4: Final Optimization, Shading, and Export in Blender
+
+This final chapter optimizes the barrel model for performance (reducing polygon count while preserving visual quality), applies smooth shading, corrects scale for game engines, and exports it as an FBX file ready for Unity, Unreal, or similar.
+
+All steps were performed with **Metric** units (millimeters) for game-ready scale.
+
+### 1. Applying Shade Auto Smooth
+Select everything (**A**).  
+Right-click → **Shade Auto Smooth**.  
+This automatically smooths normals based on edge angles, giving the barrel a polished look without extra geometry.
+
+<table>
+<tr><th width="50%">Applying Shade Auto Smooth to all objects</th><th width="50%">Result after Shade Auto Smooth</th></tr>
+<tr>
+<td><img src="Images/Blender_step65.png" style="width:100%; height:auto;"></td>
+<td><img src="Images/Blender_step66.png" style="width:100%; height:auto;"></td>
+</tr>
+</table>
+
+### 2. Setting Origin to Geometry
+Select all objects (**A**).  
+Right-click → **Set Origin** → **Origin to Geometry**.  
+This centers the origin point of each object on its own geometry, which is essential for correct scaling, rotation, and export.
+
+<table>
+<tr><th width="100%">Setting origin to geometry on all objects</th></tr>
+<tr><td><img src="Images/Blender_step67.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 3. Reducing Polygon Count with Limited Dissolve
+Select all objects (**A**).  
+Go to **Mesh** → **Clean Up** → **Limited Dissolve**.
+
+<table>
+<tr><th width="100%">Applying Limited Dissolve</th></tr>
+<tr><td><img src="Images/Blender_step68.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+In the operator panel (bottom-left), set **Max Angle** to around **4.5° – 5°**.  
+This removes unnecessary flat faces while keeping the shape intact.
+
+<table>
+<tr><th width="100%">Applied Limited Dissolve (Angle ~4.5°)</th></tr>
+<tr><td><img src="Images/Blender_step69.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+**Result:** Significant optimization achieved.  
+Original stats (before): Vertices ~5,712 | Faces ~4,740 | Triangles ~11,304  
+After Limited Dissolve: Vertices ~1,712 | Faces ~1,084 | Triangles ~3,304  
+Visual quality remains nearly identical – perfect for game assets.
+
+<table>
+<tr><th width="100%">Optimized barrel after Limited Dissolve</th></tr>
+<tr><td><img src="Images/Blender_step70.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 4. Checking Final Dimensions
+Select the main barrel assembly.  
+Press **N** to open the **Item** panel.  
+Verify **Dimensions** (should be approximately: Height ~900 mm, Diameter ~600 mm).  
+If too large/small, select all (**A**) and scale uniformly (**S**) until correct.
+
+<table>
+<tr><th width="100%">Checking barrel dimensions in Item panel</th></tr>
+<tr><td><img src="Images/Blender_step71.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 5. Applying All Transforms
+Select everything (**A**).  
+Press **Ctrl + A** → **All Transforms**.  
+This bakes location, rotation, and scale into the mesh data – crucial for consistent import into game engines.
+
+<table>
+<tr><th width="100%">Applying All Transforms</th></tr>
+<tr><td><img src="Images/Blender_step72.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 6. Exporting as FBX
+Right-click → on the Barrel Collection → **Select Objects**.  
+Go to **File** → **Export** → **FBX (.fbx)**.  
+In the export sidebar use these recommended settings for game engines:
+
+- **Include** → **Selected Objects** checked, **Object Types** → **Mesh**  
+- **Transform** → **Scale: 1.00**, **Apply Unit** checked, **Apply Transform** checked  
+- **Geometry** → **Apply Modifiers** checked, **Smoothing: Normals Only**
+
+Name the file (e.g., Barrel.fbx) and export.
+
+<table>
+<tr><th width="50%">FBX export</th><th width="50%">FBX export settings panel</th></tr>
+<tr>
+<td><img src="Images/Blender_step73.png" style="width:100%; height:auto;"></td>
+<td><img src="Images/Blender_step74.png" style="width:100%; height:auto;"></td>
+</tr>
+</table>
+
+**Chapter complete.**  
+The barrel is fully modeled, textured (wood + steel), optimized (~70% polygon reduction), smoothed, scaled correctly, and exported as FBX. It is now ready for import into Unity, Unreal Engine, Godot, or any other game engine.
+
+**Documentation end.**  
+All chapters are now complete. The full barrel model is production-ready with clean topology, PBR materials, and optimized performance.
