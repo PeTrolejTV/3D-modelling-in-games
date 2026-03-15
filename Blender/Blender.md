@@ -368,8 +368,11 @@ Press **A** to select all faces.
 Right-click → **UV** → **Unwrap Faces** → **Smart UV Project**.
 
 <table>
-<tr><th width="100%">Smart UV Project on body</th></tr>
-<tr><td><img src="Images/Blender_step39.png" style="width:100%; height:auto;"></td></tr>
+<tr><th width="50%">UV Unwrapped body</th><th width="50%">Smart UV Project on body</th></tr>
+<tr>
+<td><img src="Images/Blender_step40.png" style="width:100%; height:auto;"></td>
+<td><img src="Images/Blender_step39.png" style="width:100%; height:auto;"></td>
+</tr>
 </table>
 
 ### 11. Fixing Top & Bottom UV Orientation
@@ -377,9 +380,9 @@ Select only the top and bottom ring faces.
 Re-unwrap using **Smart UV Project** but set **Rotation Method** to **Axis-aligned (Vertical)**.
 
 <table>
-<tr><th width="50%">Changing rotation to Vertical</th><th width="50%">Vertical UV result</th></tr>
+<tr><th width="50%">Selecting Top and Bottom Faces</th><th width="50%">Vertical UV result</th></tr>
 <tr>
-<td><img src="Images/Blender_step40.png" style="width:100%; height:auto;"></td>
+<td><img src="Images/Blender_step40x.png" style="width:100%; height:auto;"></td>
 <td><img src="Images/Blender_step41.png" style="width:100%; height:auto;"></td>
 </tr>
 </table>
@@ -461,3 +464,148 @@ Move the corresponding lid objects into them for clarity.
 
 **Chapter complete.**  
 The barrel body is now modeled with realistic curvature, separated planks, proper UV mapping, and consistent wood texturing. Both lids are positioned, completing the basic barrel assembly – ready for metal hoops or final refinements in the next chapter.
+
+## Chapter 3: Creating the Metal Hoops in Blender
+
+The metal hoops (bands) give the barrel its classic reinforced look and hold the wooden staves together. This chapter creates simple extruded rings, adds thickness, duplicates them around the barrel, and applies a realistic PBR steel material with proper UV projection.
+
+All steps were performed with **Metric** units (millimeters) for game-ready scale.
+
+### 1. Adding the Base Circle for the Hoop
+In **Object Mode**, press **Shift + A** → **Mesh** → **Circle**.  
+Position it around the barrel at the desired height (e.g., lower band).
+
+<table>
+<tr><th width="100%">Adding the base circle for the first hoop</th></tr>
+<tr><td><img src="Images/Blender_step51.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 2. Resizing the Hoop Diameter
+With the circle selected, press **S** to scale it until it fits snugly around the barrel body at that height.
+
+<table>
+<tr><th width="100%">Scaling the circle to fit the barrel</th></tr>
+<tr><td><img src="Images/Blender_step52.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 3. Extruding the Hoop Width
+Enter **Edit Mode** (**Tab**).  
+Switch to **Edge Select** mode (**2**).  
+Select the outer edge loop.  
+Press **E** to extrude outward and create the basic width of the hoop.
+
+<table>
+<tr><th width="100%">Extruding the hoop width</th></tr>
+<tr><td><img src="Images/Blender_step53.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 4. Tapering the Top Edge
+Still in **Edit Mode**, select the top edge loop of the extruded ring.  
+Press **S** to scale it slightly outward so the hoop tapers and follows the barrel's curve more naturally.
+
+<table>
+<tr><th width="100%">Scaling the top edge for taper</th></tr>
+<tr><td><img src="Images/Blender_step54.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 5. Adding Thickness with Solidify
+Exit to **Object Mode**.  
+Add the **Solidify** modifier.  
+Set **Offset** to **1** (extrudes outward) and choose a realistic **Thickness** (e.g., 2–5 mm).  
+Apply the modifier.
+
+<table>
+<tr><th width="100%">Solidify modifier – outward thickness</th></tr>
+<tr><td><img src="Images/Blender_step55.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 6. Duplicating for Additional Hoops
+Select the finished hoop.  
+Press **Shift + D** to duplicate.  
+Move the copy upward (G → Z) to the next desired position (middle or upper band).
+
+<table>
+<tr><th width="100%">Duplicating and positioning the next hoop</th></tr>
+<tr><td><img src="Images/Blender_step56.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 7. Rotating the Duplicate 180° (Optional Flip)
+With the duplicated hoop selected, press **R** → **Y** → **180** to flip it 180° on the Y-axis (useful if the bevel direction needs to match the barrel curve symmetrically).
+
+<table>
+<tr><th width="100%">Rotating duplicate hoop 180° on Y-axis</th></tr>
+<tr><td><img src="Images/Blender_step57.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 8. Creating Middle Hoops
+Repeat the duplication, scaling, and minor edge adjustment process for the two middle hoops.  
+Fine-tune their top/bottom edges with **S** so they sit flush against the curved staves.
+
+<table>
+<tr><th width="100%">Adjusting middle hoops to fit barrel curve</th></tr>
+<tr><td><img src="Images/Blender_step58.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 9. Creating the Steel Material
+Select one hoop object.  
+In the **Material Properties** panel, click **New** and name it **Steel**.
+
+<table>
+<tr><th width="100%">Creating new Steel material slot</th></tr>
+<tr><td><img src="Images/Blender_step59.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 10. Importing PBR Steel Textures
+Switch to the **Shading** workspace.  
+Select the **Principled BSDF** node.  
+Press **Ctrl + Shift + T**.  
+Navigate to the unpacked Metal052C folder and select all texture files.  
+Click **Principled Texture Setup** to auto-connect them.
+
+<table>
+<tr><th width="50%">Selecting Metal052C texture files</th><th width="50%">Automatic Principled Texture Setup</th></tr>
+<tr>
+<td><img src="Images/Blender_step60.png" style="width:100%; height:auto;"></td>
+<td><img src="Images/Blender_step61.png" style="width:100%; height:auto;"></td>
+</tr>
+</table>
+
+### 11. Linking Steel Material to All Hoops
+Select **all** hoop objects (keep the one with the Steel material as active – orange outline).  
+Press **Ctrl + L** → **Link Materials**.
+
+<table>
+<tr><th width="100%">Linking Steel material to all hoops</th></tr>
+<tr><td><img src="Images/Blender_step62x.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 12. UV Unwrapping the Hoops
+Select all hoop objects → **Edit Mode**.  
+Switch to **Face Select** mode (**3**).  
+Press **A** to select all faces.  
+Right-click → **UV** → **Unwrap Faces** → **Cube Projection** (gives clean results on ring geometry).
+
+<table>
+<tr><th width="100%">Cube Projection UV unwrap for hoops</th></tr>
+<tr><td><img src="Images/Blender_step62.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+**Result:** Perfectly aligned Metal grain.
+
+<table>
+<tr><th width="100%">Final textured hoops</th></tr>
+<tr><td><img src="Images/Blender_step63.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+### 13. Final Organization
+Create a new Collection named **BarrelHoops**.  
+Move all hoop objects into it.  
+Hide/show collections as needed to keep the Outliner clean.
+
+<table>
+<tr><th width="100%">BarrelHoops collection in Outliner</th></tr>
+<tr><td><img src="Images/Blender_step64.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+**Chapter complete.**  
+The metal hoops are now modeled, textured with high-quality PBR steel, UV unwrapped using Cube Projection, and organized in the scene. The barrel now has its iconic banded appearance – ready for final assembly tweaks, lighting, or export in the next steps.
