@@ -1,321 +1,165 @@
-# Game Object Modeling: Barrel
+# 3D Modeling in Games – Bachelor's Thesis Documentation
 
-## Blender Workflow
+## Chapter 1: Creating the Barrel Lid in Blender
 
-<details>
-<summary>1️⃣ Barrel Lid</summary>
+The barrel lid (the top wooden cover) serves as the foundation for the entire barrel model. This chapter provides a complete, reproducible step-by-step guide to modeling, detailing, separating, and texturing the lid using Blender 4.x. The process focuses on clean topology, realistic plank structure, and professional PBR texturing.
 
-### Creating the Lid Base
-- Add a circle:
+All steps were performed with **Metric** units (millimeters) for game-ready scale.
 
-Shift + A -> Mesh -> Circle
+### 1. Adding the Base Circle
+In **Object Mode**, press **Shift + A** → **Mesh** → **Circle**.  
+This creates a perfect circular base with 32 vertices – ideal starting topology for a round wooden lid.
 
-![Lid Base](Images/Blender_step1.png)
+![Step 1: Adding the base circle](Images/Blender_step1.png)
 
-- Enter Edit Mode and Vertex Select:
+**Tip:** Switch to **Top Orthographic** view (Numpad 7) and enable **X-Ray** (Alt + Z) for better visibility during early modeling.
 
-Tab -> 1
+### 2. Entering Edit Mode and Selecting Vertices
+Press **Tab** to enter **Edit Mode**.  
+Press **1** to switch to **Vertex Select** mode.  
+Select two adjacent vertices (hold **Shift** or drag with the selection tool).
 
-![Edit Mode](Images/Blender_step2.png)
+![Step 2: Vertex selection](Images/Blender_step2.png)
 
-- Connect vertices to form edges:  
-  - Select vertices (Shift or drag select)  
-  - Press **F** to connect  
-![Connect Vertices](Images/Blender_step3.png)
+### 3. Connecting the First Edge
+With the two vertices selected, press **F** to create an edge. This forms the foundation of the plank pattern.
 
-- Complete lid shape by connecting remaining vertices  
-![Lid Foundation](Images/Blender_step4.png)
+![Step 3: First edge connection](Images/Blender_step3.png)
 
-- Fill all faces:
+### 4. Building the Plank Pattern
+Repeat the edge-creation process (select two vertices → **F**) across the circle to form the desired radial plank layout typical for a wooden barrel lid.
 
-A -> F
+![Step 4: Building the plank pattern](Images/Blender_step4.png)
 
-![Filled Lid](Images/Blender_step5.png)
+### 5. Filling the Faces
+Press **A** to select all vertices.  
+Press **F** to fill the faces.
 
-- Apply **Solidify Modifier** for thickness  
-![Solidify Lid](Images/Blender_step6.png)
-![Solidify Lid](Images/Blender_step7.png)
-![Solidify Lid](Images/Blender_step8.png)
+![Step 5: Filling the faces](Images/Blender_step5.png)
 
-![Solidified Lid](Images/Blender_step9.png)
+**Result:** A solid flat disc ready for thickness.
 
-### Adding Details
-- Switch to Edge Select, select edges to bevel  
-![Select Edges](Images/Blender_step10.png)
+### 6. Adding the Solidify Modifier
+In **Object Mode**, go to the **Modifier Properties** panel → **Add Modifier** → **Generate** → **Solidify**.
 
-- Bevel tool: drag yellow handle or set Width in the menu  
-![Bevel Edges](Images/Blender_step11.png)
-![Bevel Edges](Images/Blender_step12.png)
+![Step 6: Adding Solidify modifier](Images/Blender_step6.png)
 
-- Remove unnecessary faces:  
+### 7. Setting Thickness
+Set **Thickness** to **0.05 mm** (very thin for a realistic lid).  
+Leave **Offset** at -1.000 and enable **Fill Rim**.
 
-X -> Faces
+![Step 7: Solidify settings](Images/Blender_step7.png)
 
-![Remove Faces](Images/Blender_step13.png)
+### 8. Applying the Modifier
+Return to **Object Mode**.  
+In the modifier panel, click the dropdown arrow next to **Solidify** → **Apply**.
 
-- Separate sections for texturing:
+![Step 8: Applying the Solidify modifier](Images/Blender_step8.png)
 
-P -> Separate by Selection
+**Result:** The lid now has real geometry thickness.
 
-![Separate Sections](Images/Blender_step14.png)
+![Step 9: Lid after Solidify](Images/Blender_step9.png)
 
-- Connect missing edges individually (F) to avoid unwanted connections  
-![Connect Edges](Images/Blender_step15.png)
-![Connected Edges](Images/Blender_step16.png)
+### 9. Adding Bevel Detail (Edges)
+Switch to **Edge Select** mode (**2**).  
+Select all outer and inner radial edges you want to bevel.  
+Press **Ctrl + B** (Bevel tool).
 
-</details>
+![Step 10: Activating Bevel tool](Images/Blender_step10.png)
 
-<details>
-<summary>2️⃣ Barrel Body</summary>
+Drag the yellow handle to create the bevel. Release and open the **Bevel** panel in the bottom-left corner.
 
-- Add circle for base:
+Set:
+- **Width Type**: Offset
+- **Width**: 0.01 mm
+- **Segments**: 1
+- **Profile Shape**: 0.500
+- **Profile Type**: Superellipse
 
-Shift + A -> Mesh -> Circle
+![Step 11: Bevel applied](Images/Blender_step11.png)
 
-![Barrel Base](Images/Blender_step1.png)
+![Step 12: Precise Bevel settings](Images/Blender_step12.png)
 
-- Extrude vertically for barrel height:
+### 10. Removing Inner Faces
+Switch to **Face Select** mode (**3**).  
+Select all newly created inner faces from the bevel.  
+Press **X** → **Faces**.
 
-Select edges -> E -> extrude
+![Step 13: Deleting inner faces](Images/Blender_step13.png)
 
-![Extrude Body](Images/Blender_step28.png)
+**Result:** Clean plank separation with beveled edges.
 
-- Apply **Solidify Modifier** and set thickness  
-![Solidify Body](Images/Blender_step29.png)
+### 11. Separating Planks for Texturing
+Select one plank section (face loop).  
+Press **P** → **Selection** to separate into a new object.  
+Repeat for every plank.
 
-- Bevel every second edge (outer + inner)  
-![Bevel Body](Images/Blender_step30.png)
+![Step 14: Separating by selection](Images/Blender_step14.png)
 
-- Delete unnecessary faces:
+![Step 15: Multiple separated objects in Outliner](Images/Blender_step17.png)
 
-X -> Faces
+### 12. Closing Missing Edges
+In **Edit Mode** (per object), select the three missing edge pairs (top, middle, bottom) one by one and press **F**.  
+Do **not** select everything at once – it would create incorrect faces.
 
-![Delete Faces](Images/Blender_step31.png)
+![Step 16: Connecting missing edges](Images/Blender_step15.png)
 
-- Separate each plank as individual objects and organize into a collection `BarrelBody`  
-![Separate Pieces](Images/Blender_step32.png)
+### 13. Creating and Assigning the Wood Material
+Select all lid objects (**A**).  
+In the **Material Properties** panel, click **New** and rename the material to **Wood**.
 
-- Connect edges individually  
-![Connect Body Edges](Images/Blender_step34.png)
-![Connected Body Edges](Images/Blender_step35.png)
+![Step 17: Adding new material](Images/Blender_step23.png)
 
-- Add Details to change shape:
+### 14. Preparing Node Wrangler Add-on
+Go to **Edit** → **Preferences** → **Add-ons**.  
+Search for **Node Wrangler** and enable it.
 
-Right click -> Subdivide
+![Step 18: Enabling Node Wrangler](Images/Blender_step20.png)
 
-![Subdivide_Body](Images/Blender_step43.png)
-![Subdivide_Body](Images/Blender_step44.png)
+**Tip:** This add-on is essential for fast PBR texture setup.
 
-- Select the horizontal lines and Scale:
+### 15. Switching to Shading Workspace
+Change the workspace to **Shading** (top tab).
 
-S -> 1.1
+![Step 19: Shading workspace](Images/Blender_step19.png)
 
-![Scale_Body_Edges](Images/Blender_step45.png)
+### 16. Importing PBR Textures (Wood035)
+Select the **Principled BSDF** node.  
+Press **Ctrl + Shift + T**.  
+Navigate to the unpacked `Wood035` folder from [ambientcg.com](https://ambientcg.com/view?id=Wood035) and select all texture files.  
+Click **Principled Texture Setup**.
 
-S -> 1.05
+![Step 20: Texture file selection](Images/Blender_step21.png)
 
-![Scale_Body_Edges](Images/Blender_step46.png)
+![Step 21: Automatic node setup](Images/Blender_step22.png)
 
-- Barrel Body
-![Barrel_Body](Images/Blender_step47.png)
-![Barrel_Body](Images/Blender_step48.png)
-![Barrel_Body](Images/Blender_step49.png)
+### 17. Material Preview
+The lid should now appear brown (raw texture).
 
-</details>
+![Step 22: Material applied before UV fix](Images/Blender_step24.png)
 
-<details>
-<summary>3️⃣ Hoops</summary>
+### 18. Fixing UV Mapping
+Select all objects → **Edit Mode**.  
+Right-click → **UV** → **Unwrap Faces** → **Smart UV Project**.  
+In the operator panel:
+- **Angle Limit**: 89°
+- **Rotation Method**: Axis-aligned (Horizontal)
 
-- Add circle mesh, move to desired position, resize with **S**, extrude **E**  
-![Hoop Creation](Images/Blender_step51.png)
-![Hoop Creation](Images/Blender_step52.png)
-![Hoop Creation](Images/Blender_step53.png)
-![Hoop Creation](Images/Blender_step54.png)
+![Step 23: Smart UV Project](Images/Blender_step25.png)
 
-- Apply **Solidify Modifier** (Offset = 1) and adjust thickness, then apply  
-![Solidify Hoop](Images/Blender_step55.png)
+**Result:** Perfectly aligned wood grain.
 
-- Duplicate and position additional hoops  
-![Duplicate Hoops](Images/Blender_step56.png)
-![Rotate Hoops](Images/Blender_step57.png)
-![Duplicate Hoops](Images/Blender_step58.png)
+![Step 24: Final textured lid](Images/Blender_step16.png)
 
-- Apply metal material with Principled BSDF workflow  
-![Metal Material](Images/Blender_step59.png)
-![Metal Material](Images/Blender_step60.png)
-![Metal Material](Images/Blender_step61.png)
+### 19. Organizing the Project
+Create a new Collection named **BarrelLid**.  
+Move all lid objects into it.  
+Hide the collection with the eye icon (we will use it later).
 
-- UV unwrap with Cube Projection  
-![Hoop UV](Images/Blender_step62.png)
-![Hoop UV](Images/Blender_step63.png)
+![Step 25: BarrelLid collection](Images/Blender_step27.png)
 
-</details>
+![Step 26: Final rendered view of the completed barrel lid](Images/Blender_step26.png)
 
-<details>
-<summary>4️⃣ Materials & Textures</summary>
+**Chapter complete.** The barrel lid is now fully modeled, separated, UV-unwrapped, and textured with high-quality PBR wood material – ready for the barrel body in the next chapter.
 
-- Wood Texture: [Wood035](https://ambientcg.com/view?id=Wood035)  
-- Metal Texture: [Metal052C](https://ambientcg.com/view?id=Metal052C)
-
-- Add new material to all parts, rename it  
-![Add Material](Images/Blender_step17.png)
-![Add Material](Images/Blender_step18.png)
-![Add Material](Images/Blender_step23.png)
-![Add Material](Images/Blender_step24.png)
-![Shading_Workspace](Images/Blender_step19.png)
-
-![Add Material](Images/Blender_step36.png)
-![Add Material](Images/Blender_step37.png)
-
-- Enable **Node Wrangler** addon:  
-
-Edit -> Preferences -> Add-ons -> Node Wrangler
-
-![Node Wrangler](Images/Blender_step20.png)
-
-- Principled BSDF -> **Ctrl + Shift + T** -> load textures -> Principled Texture Setup  
-![Texture Setup](Images/Blender_step21.png)
-![Texture Setup](Images/Blender_step22.png)
-
-- UV unwrap all objects (Smart UV Project)  
-![UV Unwrap](Images/Blender_step25.png)
-![UV Unwrap](Images/Blender_step26.png)
-
-![UV Unwrap](Images/Blender_step38.png)
-![UV Unwrap](Images/Blender_step39.png)
-
-![UV Unwrap](Images/Blender_step40.png)
-
-- Adjust top/bottom faces projection to Vertical
-![UV Adjustment](Images/Blender_step41.png)
-![UV Adjustment](Images/Blender_step42.png)
-
-- Organize objects into collections for clean project structure  
-![Organize Collections](Images/Blender_step27.png)
-![Organize Collections](Images/Blender_step33.png)
-![Organize Collections](Images/Blender_step50.png)
-![Organize Collections](Images/Blender_step64.png)
-
-</details>
-
-<details>
-<summary>5️⃣ Final Adjustments & Optimization</summary>
-
-- Apply **Shade Auto Smooth** to all objects  
-![Shade Smooth](Images/Blender_step65.png)
-
-- Set origin to **Center of Geometry**  
-![Set Origin](Images/Blender_step67.png)
-
-- Check object stats:
-
-Objects: 34
-Vertices: 5,712
-Edges: 10,392
-Faces: 4,740
-Triangles: 11,304
-
-![Stats Before Optimization](Images/Blender_step66.png)
-
-- Optimize geometry:  
-
-Mesh -> Clean Up -> Limited Dissolve
-
-- Set Max Angle ~4.5-5°  
-![Limited Dissolve](Images/Blender_step68.png)
-![Limited Dissolve](Images/Blender_step69.png)
-
-- Final optimized stats:
-
-Objects: 34
-Vertices: 1,712
-Edges: 2,736
-Faces: 1,084
-Triangles: 3,304
-
-![Optimized Barrel](Images/Blender_step70.png)
-
-> Model is now ready for Unity testing and documentation.
-
-</details>
-
-<details>
-<summary>6️⃣ Scaling & Export</summary>
-
-### Setting the Correct Scale
-
-Before exporting the model to a game engine, it is important to ensure that the object has a realistic and consistent scale.
-
-In Blender, the default unit scale is:
-
-1 Blender Unit = 1 meter
-
-The barrel should have an approximate real-world size.
-
-Typical barrel dimensions used in games:
-
-- Height: **~0.9 m (900 mm)**
-- Diameter: **~0.6 m**
-
-To check the current size of the object:
-
-1. Select the barrel.
-2. Open the **Item panel** (`N` key).
-3. Check the **Dimensions** values.
-
-![Check Dimensions](Images/Blender_step71.png)
-
-If the model is not the correct size, we can scale it using the **Scale tool**.
-
-Press:
-
-S → adjust the scale until the height reaches approximately **900 mm**.
-
-### Applying Transformations
-
-After scaling the model, we need to apply the transformations so the game engine reads the correct values.
-
-1. Select all barrel objects (`A`).
-2. Press:
-
-Ctrl + A → Apply → **All Transforms**
-
-This resets the transform values while keeping the model at the correct size.
-
-![Apply Transformations](Images/Blender_step72.png)
-
-### Exporting the Model
-
-Once the model has the correct scale and transformations applied, it can be exported for use in a game engine.
-
-1. Go to:
-
-File → Export → **FBX (.fbx)**
-
-![FBX Export](Images/Blender_step73.png)
-
-2. In the export settings use the following configuration:
-
-Include
-
-- **Selected Objects** enabled
-- **Object Types: Mesh**
-
-Transform
-
-- Scale: **1.00**
-- Apply Unit: **Enabled**
-- Apply Transform: **Enabled**
-
-Geometry
-
-- Apply Modifiers: **Enabled**
-- Smoothing: **Normals Only**
-
-These settings ensure that only the barrel mesh is exported and that the model keeps the correct orientation and scale when imported into a game engine such as Unity.
-
-![FBX Export Settings](Images/Blender_step74.png)
-
-> The barrel model is now correctly scaled and exported as a **game-ready asset**.
-
-</details>
+---
