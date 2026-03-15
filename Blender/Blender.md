@@ -10,52 +10,58 @@
 
 Shift + A -> Mesh -> Circle
 
-![Lid Base](SCREENSHOT_INSERT)
+![Lid Base](Images/Blender_step1.png)
 
 - Enter Edit Mode and Vertex Select:
 
 Tab -> 1
 
-![Edit Mode](SCREENSHOT_INSERT)
+![Edit Mode](Images/Blender_step2.png)
 
 - Connect vertices to form edges:  
   - Select vertices (Shift or drag select)  
   - Press **F** to connect  
-![Connect Vertices](SCREENSHOT_INSERT)
+![Connect Vertices](Images/Blender_step3.png)
 
 - Complete lid shape by connecting remaining vertices  
-![Lid Foundation](SCREENSHOT_INSERT)
+![Lid Foundation](Images/Blender_step4.png)
 
 - Fill all faces:
 
 A -> F
 
-![Filled Lid](SCREENSHOT_INSERT)
+![Filled Lid](Images/Blender_step5.png)
 
 - Apply **Solidify Modifier** for thickness  
-![Solidify Lid](SCREENSHOT_INSERT)
+![Solidify Lid](Images/Blender_step6.png)
+![Solidify Lid](Images/Blender_step7.png)
+![Solidify Lid](Images/Blender_step8.png)
+
+![Solidified Lid](Images/Blender_step9.png)
 
 ### Adding Details
 - Switch to Edge Select, select edges to bevel  
-![Select Edges](SCREENSHOT_INSERT)
+![Select Edges](Images/Blender_step10.png)
 
 - Bevel tool: drag yellow handle or set Width in the menu  
-![Bevel Edges](SCREENSHOT_INSERT)
+![Bevel Edges](Images/Blender_step11.png)
+![Bevel Edges](Images/Blender_step12.png)
 
 - Remove unnecessary faces:  
 
 X -> Faces
 
-![Remove Faces](SCREENSHOT_INSERT)
+![Remove Faces](Images/Blender_step13.png)
 
 - Separate sections for texturing:
 
 P -> Separate by Selection
 
-![Separate Sections](SCREENSHOT_INSERT)
+![Separate Sections](Images/Blender_step14.png)
 
 - Connect missing edges individually (F) to avoid unwanted connections  
-![Connect Edges](SCREENSHOT_INSERT)
+![Connect Edges](Images/Blender_step15.png)
+![Connected Edges](Images/Blender_step16.png)
 
 </details>
 
@@ -66,31 +72,54 @@ P -> Separate by Selection
 
 Shift + A -> Mesh -> Circle
 
-![Barrel Base](SCREENSHOT_INSERT)
+![Barrel Base](Images/Blender_step1.png)
 
 - Extrude vertically for barrel height:
 
 Select edges -> E -> extrude
 
-![Extrude Body](SCREENSHOT_INSERT)
+![Extrude Body](Images/Blender_step28.png)
 
 - Apply **Solidify Modifier** and set thickness  
-![Solidify Body](SCREENSHOT_INSERT)
+![Solidify Body](Images/Blender_step29.png)
 
 - Bevel every second edge (outer + inner)  
-![Bevel Body](SCREENSHOT_INSERT)
+![Bevel Body](Images/Blender_step30.png)
 
 - Delete unnecessary faces:
 
 X -> Faces
 
-![Delete Faces](SCREENSHOT_INSERT)
+![Delete Faces](Images/Blender_step31.png)
 
 - Separate each plank as individual objects and organize into a collection `BarrelBody`  
-![Separate Pieces](SCREENSHOT_INSERT)
+![Separate Pieces](Images/Blender_step32.png)
 
 - Connect edges individually  
-![Connect Body Edges](SCREENSHOT_INSERT)
+![Connect Body Edges](Images/Blender_step34.png)
+![Connected Body Edges](Images/Blender_step35.png)
+
+- Add Details to change shape:
+
+Right click -> Subdivide
+
+![Subdivide_Body](Images/Blender_step43.png)
+![Subdivide_Body](Images/Blender_step44.png)
+
+- Select the horizontal lines and Scale:
+
+S -> 1.1
+
+![Scale_Body_Edges](Images/Blender_step45.png)
+
+S -> 1.05
+
+![Scale_Body_Edges](Images/Blender_step46.png)
+
+- Barrel Body
+![Barrel_Body](Images/Blender_step47.png)
+![Barrel_Body](Images/Blender_step48.png)
+![Barrel_Body](Images/Blender_step49.png)
 
 </details>
 
@@ -98,19 +127,27 @@ X -> Faces
 <summary>3️⃣ Hoops</summary>
 
 - Add circle mesh, move to desired position, resize with **S**, extrude **E**  
-![Hoop Creation](SCREENSHOT_INSERT)
-
-- Duplicate and position additional hoops  
-![Duplicate Hoops](SCREENSHOT_INSERT)
+![Hoop Creation](Images/Blender_step51.png)
+![Hoop Creation](Images/Blender_step52.png)
+![Hoop Creation](Images/Blender_step53.png)
+![Hoop Creation](Images/Blender_step54.png)
 
 - Apply **Solidify Modifier** (Offset = 1) and adjust thickness, then apply  
-![Solidify Hoop](SCREENSHOT_INSERT)
+![Solidify Hoop](Images/Blender_step55.png)
+
+- Duplicate and position additional hoops  
+![Duplicate Hoops](Images/Blender_step56.png)
+![Rotate Hoops](Images/Blender_step57.png)
+![Duplicate Hoops](Images/Blender_step58.png)
 
 - Apply metal material with Principled BSDF workflow  
-![Metal Material](SCREENSHOT_INSERT)
+![Metal Material](Images/Blender_step59.png)
+![Metal Material](Images/Blender_step60.png)
+![Metal Material](Images/Blender_step61.png)
 
 - UV unwrap with Cube Projection  
-![Hoop UV](SCREENSHOT_INSERT)
+![Hoop UV](Images/Blender_step62.png)
+![Hoop UV](Images/Blender_step63.png)
 
 </details>
 
@@ -121,25 +158,43 @@ X -> Faces
 - Metal Texture: [Metal052C](https://ambientcg.com/view?id=Metal052C)
 
 - Add new material to all parts, rename it  
-![Add Material](SCREENSHOT_INSERT)
+![Add Material](Images/Blender_step17.png)
+![Add Material](Images/Blender_step18.png)
+![Add Material](Images/Blender_step23.png)
+![Add Material](Images/Blender_step24.png)
+![Shading_Workspace](Images/Blender_step19.png)
+
+![Add Material](Images/Blender_step36.png)
+![Add Material](Images/Blender_step37.png)
 
 - Enable **Node Wrangler** addon:  
 
 Edit -> Preferences -> Add-ons -> Node Wrangler
 
-![Node Wrangler](SCREENSHOT_INSERT)
+![Node Wrangler](Images/Blender_step20.png)
 
 - Principled BSDF -> **Ctrl + Shift + T** -> load textures -> Principled Texture Setup  
-![Texture Setup](SCREENSHOT_INSERT)
+![Texture Setup](Images/Blender_step21.png)
+![Texture Setup](Images/Blender_step22.png)
 
 - UV unwrap all objects (Smart UV Project)  
-![UV Unwrap](SCREENSHOT_INSERT)
+![UV Unwrap](Images/Blender_step25.png)
+![UV Unwrap](Images/Blender_step26.png)
 
-- Adjust top/bottom faces projection to Vertical  
-![UV Adjustment](SCREENSHOT_INSERT)
+![UV Unwrap](Images/Blender_step38.png)
+![UV Unwrap](Images/Blender_step39.png)
+
+![UV Unwrap](Images/Blender_step40.png)
+
+- Adjust top/bottom faces projection to Vertical
+![UV Adjustment](Images/Blender_step41.png)
+![UV Adjustment](Images/Blender_step42.png)
 
 - Organize objects into collections for clean project structure  
-![Organize Collections](SCREENSHOT_INSERT)
+![Organize Collections](Images/Blender_step27.png)
+![Organize Collections](Images/Blender_step33.png)
+![Organize Collections](Images/Blender_step50.png)
+![Organize Collections](Images/Blender_step64.png)
 
 </details>
 
@@ -147,10 +202,10 @@ Edit -> Preferences -> Add-ons -> Node Wrangler
 <summary>5️⃣ Final Adjustments & Optimization</summary>
 
 - Apply **Shade Auto Smooth** to all objects  
-![Shade Smooth](SCREENSHOT_INSERT)
+![Shade Smooth](Images/Blender_step65.png)
 
 - Set origin to **Center of Geometry**  
-![Set Origin](SCREENSHOT_INSERT)
+![Set Origin](Images/Blender_step67.png)
 
 - Check object stats:
 
@@ -160,14 +215,15 @@ Edges: 10,392
 Faces: 4,740
 Triangles: 11,304
 
-![Stats Before Optimization](SCREENSHOT_INSERT)
+![Stats Before Optimization](Images/Blender_step66.png)
 
 - Optimize geometry:  
 
 Mesh -> Clean Up -> Limited Dissolve
 
 - Set Max Angle ~4.5-5°  
-![Limited Dissolve](SCREENSHOT_INSERT)
+![Limited Dissolve](Images/Blender_step68.png)
+![Limited Dissolve](Images/Blender_step69.png)
 
 - Final optimized stats:
 
@@ -177,7 +233,7 @@ Edges: 2,736
 Faces: 1,084
 Triangles: 3,304
 
-![Optimized Barrel](SCREENSHOT_INSERT)
+![Optimized Barrel](Images/Blender_step70.png)
 
 > Model is now ready for Unity testing and documentation.
 
@@ -207,15 +263,13 @@ To check the current size of the object:
 2. Open the **Item panel** (`N` key).
 3. Check the **Dimensions** values.
 
-![Check Dimensions](SCREENSHOT_INSERT)
+![Check Dimensions](Images/Blender_step71.png)
 
 If the model is not the correct size, we can scale it using the **Scale tool**.
 
 Press:
 
 S → adjust the scale until the height reaches approximately **900 mm**.
-
-![Scaling Barrel](SCREENSHOT_INSERT)
 
 ### Applying Transformations
 
@@ -228,7 +282,7 @@ Ctrl + A → Apply → **All Transforms**
 
 This resets the transform values while keeping the model at the correct size.
 
-![Apply Transformations](SCREENSHOT_INSERT)
+![Apply Transformations](Images/Blender_step72.png)
 
 ### Exporting the Model
 
@@ -237,6 +291,8 @@ Once the model has the correct scale and transformations applied, it can be expo
 1. Go to:
 
 File → Export → **FBX (.fbx)**
+
+![FBX Export](Images/Blender_step73.png)
 
 2. In the export settings use the following configuration:
 
@@ -258,8 +314,8 @@ Geometry
 
 These settings ensure that only the barrel mesh is exported and that the model keeps the correct orientation and scale when imported into a game engine such as Unity.
 
-![FBX Export Settings](SCREENSHOT_INSERT)
+![FBX Export Settings](Images/Blender_step74.png)
 
-The barrel model is now correctly scaled and exported as a **game-ready asset**.
+> The barrel model is now correctly scaled and exported as a **game-ready asset**.
 
 </details>
