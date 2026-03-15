@@ -182,3 +182,84 @@ Triangles: 3,304
 > Model is now ready for Unity testing and documentation.
 
 </details>
+
+<details>
+<summary>6️⃣ Scaling & Export</summary>
+
+### Setting the Correct Scale
+
+Before exporting the model to a game engine, it is important to ensure that the object has a realistic and consistent scale.
+
+In Blender, the default unit scale is:
+
+1 Blender Unit = 1 meter
+
+The barrel should have an approximate real-world size.
+
+Typical barrel dimensions used in games:
+
+- Height: **~0.9 m (900 mm)**
+- Diameter: **~0.6 m**
+
+To check the current size of the object:
+
+1. Select the barrel.
+2. Open the **Item panel** (`N` key).
+3. Check the **Dimensions** values.
+
+![Check Dimensions](SCREENSHOT_INSERT)
+
+If the model is not the correct size, we can scale it using the **Scale tool**.
+
+Press:
+
+S → adjust the scale until the height reaches approximately **900 mm**.
+
+![Scaling Barrel](SCREENSHOT_INSERT)
+
+### Applying Transformations
+
+After scaling the model, we need to apply the transformations so the game engine reads the correct values.
+
+1. Select all barrel objects (`A`).
+2. Press:
+
+Ctrl + A → Apply → **All Transforms**
+
+This resets the transform values while keeping the model at the correct size.
+
+![Apply Transformations](SCREENSHOT_INSERT)
+
+### Exporting the Model
+
+Once the model has the correct scale and transformations applied, it can be exported for use in a game engine.
+
+1. Go to:
+
+File → Export → **FBX (.fbx)**
+
+2. In the export settings use the following configuration:
+
+Include
+
+- **Selected Objects** enabled
+- **Object Types: Mesh**
+
+Transform
+
+- Scale: **1.00**
+- Apply Unit: **Enabled**
+- Apply Transform: **Enabled**
+
+Geometry
+
+- Apply Modifiers: **Enabled**
+- Smoothing: **Normals Only**
+
+These settings ensure that only the barrel mesh is exported and that the model keeps the correct orientation and scale when imported into a game engine such as Unity.
+
+![FBX Export Settings](SCREENSHOT_INSERT)
+
+The barrel model is now correctly scaled and exported as a **game-ready asset**.
+
+</details>
