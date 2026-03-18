@@ -45,14 +45,20 @@ Working in Blender felt surprisingly intuitive after the first few hours of lear
 The UI is clean, modern (especially in recent versions), and highly responsive. Add-ons like Node Wrangler dramatically sped up PBR texture setup, while the modifier stack (Solidify, Bevel, Subdivision Surface) allowed non-destructive experimentation. Limited Dissolve proved to be an excellent optimization tool, reducing polycount significantly without visible quality loss. Overall, the experience was enjoyable and productive once the basic hotkeys became muscle memory.
 
 **Detailed step-by-step documentation:**  
-[Blender – Model Creation Documentation](./Blender/Blender_Model_Documentation.md)
+[Blender – Model Creation](./Blender/Blender_Model_Documentation.md)
 
 ## Testing in Unity
 
-Placeholder text
+Testing the Blender-created barrel in Unity focused on verifying correct import, visual fidelity, performance, and physics behavior in a real-time environment. The model was imported into a clean HDRP project, where textures and materials were properly extracted and configured. Initial visual issues (such as incorrect normal maps) were resolved, resulting in a significantly improved and realistic appearance.
+
+Lighting and shadow settings were adjusted to better evaluate the model under different conditions, while the Unity Stats panel was used to monitor performance metrics such as FPS and triangle count. The barrel maintained stable performance (around 100–120 FPS) with approximately 21k triangles, confirming that the model is well-optimized for real-time use.
+
+To further test interactivity, simple scripts were introduced to rotate the camera and lighting around the object, as well as to simulate physics-based behavior. The barrel was equipped with colliders and a rigidbody setup, allowing it to roll naturally and respond to the environment. Additionally, a custom script enabled the barrel to “explode” into separate parts either on impact or via input, demonstrating correct physics setup and object separation.
+
+Overall, the testing confirmed that the Blender model is fully functional, visually accurate, and performance-efficient in Unity, making it suitable for direct use in a game environment.
 
 **Detailed testing documentation:**  
-[Unity – Model Import & Testing](./Blender/Blender_Testing_Documentation.md) *(placeholder – in preparation)*
+[Unity – Model Import & Testing](./Blender/Blender_Testing_Documentation.md)
 
 # Dust3D
 
@@ -63,7 +69,7 @@ Placeholder text
 Placeholder text
 
 **Detailed step-by-step documentation:**  
-[Dust3D – Model Creation Documentation](./Dust3D/Dust3D_Model_Documentation.md) *(placeholder – in preparation)*
+[Dust3D – Model Creation](./Dust3D/Dust3D_Model_Documentation.md) *(placeholder – in preparation)*
 
 ## Testing in Unity
 
@@ -81,7 +87,7 @@ Placeholder text
 Placeholder text
 
 **Detailed step-by-step documentation:**  
-[Wings3D – Model Creation Documentation](./Wings3D/Wings3D_Model_Documentation.md) *(placeholder – in preparation)*
+[Wings3D – Model Creation](./Wings3D/Wings3D_Model_Documentation.md) *(placeholder – in preparation)*
 
 ## Testing in Unity
 
@@ -99,7 +105,7 @@ Placeholder text
 Placeholder text
 
 **Detailed step-by-step documentation:**  
-[Maya – Model Creation Documentation](./Maya/Maya_Model_Documentation.md) *(placeholder – in preparation)*
+[Maya – Model Creation](./Maya/Maya_Model_Documentation.md) *(placeholder – in preparation)*
 
 ## Testing in Unity
 
@@ -135,9 +141,15 @@ Placeholder text
 ├── Dust3D/
 ├── Maya/
 ├── Textures/                               # Textures used in all models
-|   ├── Metal                               # Metal textures
-|   └── Wood                                # Wood textures
+|   ├── Metal
+|   └── Wood
+├── UnityTesting/                           # Testing Scene, scripts etc.
+|   ├── Assets/
+|       ├── Models                          # Only .meta file (Import needed)
+|       └── Textures                        # Only .meta files (Import needed)
+|   ├── Packages
+|   └── ProjectSettings
 ├── Wings3D/
-├── LICENSE                                 # The License
-└── README.md                               # This File
+├── LICENSE
+└── README.md
 ```
