@@ -598,11 +598,15 @@ Right-click → **UV** → **Unwrap Faces** → **Cube Projection** (gives clean
 ### 13. Final Organization
 Create a new Collection named **BarrelHoops**.  
 Move all hoop objects into it.  
-Hide/show collections as needed to keep the Outliner clean.
+Hide/show collections as needed to keep the Outliner clean.  
+And lastly rename all objects meaningfully (e.g., `BarrelBody.001`, `BarrelHoop.001`) as Blender collections do **not** export to Unity (or most engines) — they are lost, and all objects appear flat in the hierarchy, good naming prevents confusion.
 
 <table>
-<tr><th width="100%">BarrelHoops collection in Outliner</th></tr>
-<tr><td><img src="Images/Blender_step64.png" style="width:100%; height:auto;"></td></tr>
+<tr><th width="50%">BarrelHoops collection in Outliner</th><th width="50%">Renamed Objects</th></tr>
+<tr>
+<td><img src="Images/Blender_step64.png" style="width:100%; height:auto;"></td>
+<td><img src="Images/Blender_step64x.png" style="width:100%; height:auto;"></td>
+</tr>
 </table>
 
 **Chapter complete.**  
@@ -686,23 +690,33 @@ This bakes location, rotation, and scale into the mesh data – crucial for cons
 </table>
 
 ### 6. Exporting as FBX
-Right-click → on the Barrel Collection → **Select Objects**.  
-Go to **File** → **Export** → **FBX (.fbx)**.  
-In the export sidebar use these recommended settings for game engines:
 
-- **Include** → **Selected Objects** checked, **Object Types** → **Mesh**  
+Right-click the **Barrel** collection in the Outliner → **Select Objects** (ensures only the barrel is exported).  
+Go to **File** → **Export** → **FBX (.fbx)**.
+
+Embedding textures inside the FBX file is highly recommended: it creates a **single self-contained file** (no separate texture folders needed), simplifies sharing/collaboration, and reduces import errors in Unity. When you drag the FBX into Unity, all textures are present and can be quickly extracted with one click (Materials tab → Extract Textures). This is much easier than managing dozens of loose .png files.
+
+In the export sidebar, use these optimized settings for game engines:
+
+- **Path Mode** → **Copy** + click the **Embed Textures** icon to pack textures inside the FBX  
+- **Batch Mode** → Off (unless exporting multiple files)  
+- **Include** → **Selected Objects** checked  
+- **Object Types** → **Mesh**  
 - **Transform** → **Scale: 1.00**, **Apply Unit** checked, **Apply Transform** checked  
-- **Geometry** → **Apply Modifiers** checked, **Smoothing: Normals Only**
+- **Geometry** → **Apply Modifiers** checked, **Smoothing: Normals Only**  
+- **Animation** → uncheck (not needed for static prop – disables unnecessary data)  
 
-Name the file (e.g., Barrel.fbx) and export.
+Name the file e.g. `Blender_Barrel.fbx` and export.
 
 <table>
-<tr><th width="50%">FBX export</th><th width="50%">FBX export settings panel</th></tr>
+<tr><th width="50%">FBX export dialog with selected objects</th><th width="50%">Recommended FBX export settings panel (embedded textures enabled)</th></tr>
 <tr>
 <td><img src="Images/Blender_step73.png" style="width:100%; height:auto;"></td>
 <td><img src="Images/Blender_step74.png" style="width:100%; height:auto;"></td>
 </tr>
 </table>
+
+**Result:** You now have one clean `.fbx` file containing the model, applied transforms, optimized geometry, and embedded textures — ready for fast, reliable import into Unity (or any engine) with minimal setup.
 
 **Chapter complete.**  
 The barrel is fully modeled, textured (wood + steel), optimized (~70% polygon reduction), smoothed, scaled correctly, and exported as FBX. It is now ready for import into Unity, Unreal Engine, Godot, or any other game engine.
