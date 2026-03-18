@@ -129,12 +129,14 @@ Placeholder text
 .
 ├── Blender/
 │   ├── Images                              # Images included in the documentations
-│   ├── Models                              # Exported FBX Model and the .blend file
-│   ├── Textures                            # Textures used
+│   ├── Project and Model                   # Exported FBX Model and the .blend file
 │   ├── Blender_Model_Documentation.md      # Process of creating the model
 │   └── Blender_Testing_Documentation.md    # Process of testing the model in Unity
 ├── Dust3D/
 ├── Maya/
+├── Textures/                               # Textures used in all models
+|   ├── Metal                               # Metal textures
+|   └── Wood                                # Wood textures
 ├── Wings3D/
 ├── LICENSE                                 # The License
 └── README.md                               # This File
