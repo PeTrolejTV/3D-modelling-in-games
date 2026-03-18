@@ -583,10 +583,10 @@ Press **Ctrl + L** → **Link Materials**.
 Select all hoop objects → **Edit Mode**.  
 Switch to **Face Select** mode (**3**).  
 Press **A** to select all faces.  
-Right-click → **UV** → **Unwrap Faces** → **Cube Projection** (gives clean results on ring geometry).
+Right-click → **UV** → **Unwrap Faces** → **Sphere Projection** (gives clean results on ring geometry).
 
 <table>
-<tr><th width="50%">Cube Projection UV unwrap for hoops</th><th width="50%">Final textured hoops</th></tr>
+<tr><th width="50%">UV unwrap for hoops</th><th width="50%">Final textured hoops</th></tr>
 <tr>
 <td><img src="Images/Blender_step62.png" style="width:100%; height:auto;"></td>
 <td><img src="Images/Blender_step63.png" style="width:100%; height:auto;"></td>
