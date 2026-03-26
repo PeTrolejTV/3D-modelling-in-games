@@ -2,7 +2,7 @@
 
 ## Chapter 1: Creating the Barrel Lid in Blender
 
-The barrel lid (the top wooden cover) serves as the foundation for the entire barrel model. This chapter provides a complete, reproducible step-by-step guide to modeling, detailing, separating, and texturing the lid using Blender. The process focuses on clean topology, realistic plank structure, and professional PBR texturing.
+The barrel lid (the top wooden cover) serves as the foundation for the entire barrel model. This chapter provides a complete, reproducible step-by-step guide to modeling, detailing, separating, and texturing the lid using Blender (version 5.1). The process focuses on clean topology, realistic plank structure, and professional PBR texturing.
 
 All steps were performed with **Metric** units (millimeters) for game-ready scale.
 
