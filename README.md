@@ -62,7 +62,7 @@ Lighting and shadow settings were adjusted to better evaluate the model under di
 - **Vertices:** 23.7k
 - **FPS:** 100+  
 
-To further test interactivity, simple scripts were introduced to rotate the camera and lighting around the object, as well as to simulate physics-based behavior. The barrel was equipped with colliders and a rigidbody setup, allowing it to roll naturally and respond to the environment. Additionally, a custom script enabled the barrel to “explode” into separate parts either on impact or via input, demonstrating correct physics setup and object separation.
+To further test interactivity, simple scripts were introduced to rotate the camera and lighting around the object, as well as to simulate physics-based behavior. The barrel was equipped with colliders and a rigidbody setup, allowing it to roll naturally and respond to the environment. Additionally, a custom script enabled the barrel to "explode" into separate parts either on impact or via input, demonstrating correct physics setup and object separation.
 
 Overall, the testing confirmed that the Blender model is fully functional, visually accurate, and performance-efficient in Unity, making it suitable for direct use in a game environment.
 
@@ -84,7 +84,7 @@ Dust3D is a free, open-source, node-based 3D modeling tool focused exclusively o
 
 **Limitations**
 - Last major update was years ago – the community (and many users) heavily criticize the stagnation and lack of development
-- Extremely limited feature set; the newest version (1.0.0-rc.9) removed even more tools and options compared to previous releases in a questionable attempt to “make it simpler”
+- Extremely limited feature set; the newest version (1.0.0-rc.9) removed even more tools and options compared to previous releases in a questionable attempt to "make it simpler"
 - Only one texture slot per part – no proper PBR material layering or multi-texturing
 - Top and bottom UVs are permanently broken and cannot be fixed inside the program
 - Extremely unintuitive controls and node system that feel frustrating even for simple tasks
@@ -92,9 +92,9 @@ Dust3D is a free, open-source, node-based 3D modeling tool focused exclusively o
 - Realistically suitable only for the most basic shapes – any attempt at more detailed work quickly becomes painful and inefficient
 
 ## Model creation
-Working in Dust3D felt extremely quick for the very simple barrel shape but rapidly highlighted the software’s severe limitations. After importing a reference image, the node-based workflow allowed fast creation of the barrel body by placing and resizing circular nodes, duplicating the half-barrel, using V Flip, and connecting parts. Adjusting properties (Cut Face to hexagon + Subdivided, Deform Thickness/Width 1.75) gave the classic barrel curvature in seconds. Texturing was limited to a single wood color map that required manual “exclude/include” refresh to appear. Creating metal hoops followed the same simple node approach, with alignment tools and duplication used for the remaining bands and inner rim details.
+Working in Dust3D felt extremely quick for the very simple barrel shape but rapidly highlighted the software's severe limitations. After importing a reference image, the node-based workflow allowed fast creation of the barrel body by placing and resizing circular nodes, duplicating the half-barrel, using V Flip, and connecting parts. Adjusting properties (Cut Face to hexagon + Subdivided, Deform Thickness/Width 1.75) gave the classic barrel curvature in seconds. Texturing was limited to a single wood color map that required manual "exclude/include" refresh to appear. Creating metal hoops followed the same simple node approach, with alignment tools and duplication used for the remaining bands and inner rim details.
 
-The entire modeling process took only minutes, but the experience quickly turned frustrating due to the lack of proper documentation, unintuitive interface, and the program’s deliberate simplification in the latest version (which removed features present in older builds). There is no support for separate objects on export, no advanced UV editing, and no way to create anything beyond the most basic geometry. Overall, Dust3D proved to be excellent for quick-and-dirty simple props, but any attempt at more detailed or professional work leads to immediate frustration.
+The entire modeling process took only minutes, but the experience quickly turned frustrating due to the lack of proper documentation, unintuitive interface, and the program's deliberate simplification in the latest version (which removed features present in older builds). There is no support for separate objects on export, no advanced UV editing, and no way to create anything beyond the most basic geometry. Overall, Dust3D proved to be excellent for quick-and-dirty simple props, but any attempt at more detailed or professional work leads to immediate frustration.
 
 **Detailed step-by-step documentation:**  
 [Dust3D – Model Creation](./Dust3D/Dust3D_Model_Documentation.md)
@@ -102,7 +102,7 @@ The entire modeling process took only minutes, but the experience quickly turned
 ## Testing in Unity
 Testing the Dust3D-created barrel in Unity was straightforward for basic import. The FBX file imported without scale or rotation issues, and embedded textures were unpacked easily. However, the model initially appeared transparent because Dust3D packs materials in a non-standard way – the material had to be unpacked and manually adjusted in Unity to restore proper opacity.
 
-Due to Dust3D’s limitations, the top and bottom caps have completely broken UVs. In Unity they displayed only pure white instead of the wood texture. As a workaround, the generated texture was edited in a photo editor (white areas changed to brown/black) to better match the barrel. Because the entire model is exported as **one single mesh**, no per-part material or physics separation is possible.
+Due to Dust3D's limitations, the top and bottom caps have completely broken UVs. In Unity they displayed only pure white instead of the wood texture. As a workaround, the generated texture was edited in a photo editor (white areas changed to brown/black) to better match the barrel. Because the entire model is exported as **one single mesh**, no per-part material or physics separation is possible.
 
 **Performance metrics:**  
 
@@ -124,21 +124,55 @@ Dust3D is ideal **only** for very simple, quick modeling tasks where it performs
 
 # Wings3D
 
-Placeholder text
+Wings3D is a free, open-source subdivision polygon modeler focused primarily on mesh editing through a context-sensitive right-click workflow. It offers a clean and lightweight interface built around vertex, edge, and face selection modes, with tools for cutting, beveling, extruding, and UV unwrapping accessible entirely through its contextual menus.
+
+**Benefits**
+- Completely free with no licensing restrictions
+- Lightweight and fast — no bloat, launches instantly
+- Focused modeling toolset that covers the essentials cleanly
+- Multi-part mesh workflow allows proper object separation, enabling physics and explosion effects in-engine
+- UV unwrapping is functional and supports multiple projection and remapping methods
+
+**Limitations**
+- Development is largely stagnant — the last meaningful update was released roughly a year ago and the program still carries a number of long-standing unresolved issues
+- FBX export is broken and unreliable; OBJ/Wavefront is the only dependable export format
+- Some vertex and mesh manipulation operations feel unintuitive and frustrating compared to more mature tools
+- Familiar to Blender users at first glance but has significantly fewer quality-of-life features and a shallower toolset overall
+- UV unwrapping and texture application are functional but noticeably underpowered — the workflow is tedious and the available tools are only just sufficient
+- Everything beyond pure modeling — texturing, material management, UV editing — has minimal support and feels like an afterthought
 
 ## Model creation
 
-Placeholder text
+Wings3D initially appears sparse and almost empty, but it is capable of considerably more than it looks — which came as a genuine surprise. The polygon-based workflow using cylinder primitives, vertex cutting, edge loop operations, beveling, and careful per-section extraction allowed the barrel to be built as a properly separated multi-part mesh, something neither Dust3D nor simpler tools can achieve. The context-sensitive right-click menu keeps the interface uncluttered and the available modeling tools are well suited for hard-surface prop work at this level of complexity.
+
+That said, the experience was not without frustration. The program's lack of active development is clearly felt — the FBX exporter is outright broken and forces a switch to OBJ, several vertex manipulation and modification operations behave unexpectedly, and the overall polish is well below what Blender offers. The interface will feel somewhat familiar to anyone coming from Blender, but the absence of many quality-of-life features makes the transition feel like a step backward rather than a lateral move. UV unwrapping and texture assignment work, but the workflow is cumbersome, poorly documented, and the available tooling is barely sufficient for PBR asset preparation. Wings3D occupies an interesting middle ground — more capable than Dust3D, but clearly less powerful and refined than Blender — and it shows.
 
 **Detailed step-by-step documentation:**  
-[Wings3D – Model Creation](./Wings3D/Wings3D_Model_Documentation.md) *(placeholder – in preparation)*
+[Wings3D – Model Creation](./Wings3D/Wings3D_Model_Documentation.md)
 
 ## Testing in Unity
 
-Placeholder text
+Testing the Wings3D-created barrel in Unity went smoothly once both the `.obj` and `.mtl` files were imported together. Unlike the single-mesh Dust3D export, the Wings3D barrel arrived in Unity as a properly structured multi-part hierarchy, with each plank and hoop as its own individual mesh object. This made it possible to assign separate colliders to every child object and attach a Barrel Explode script to the root, enabling a fully physics-driven plank-separation effect on impact — a significant gameplay advantage.
+
+Initial material setup required manual adjustment: the extracted metal and wood materials needed their Metallic and Smoothness values set by hand, and Normal Maps had to be assigned manually, as OBJ export does not carry PBR data. Scale also required correction, as the imported model was significantly oversized and had to be uniformly scaled down to 0.3 to match the other barrels in the scene.
+
+**Performance metrics:**
+
+- **SetPass Calls:** 30
+- **Draw Calls:** 236
+- **Batches:** 236
+- **Triangles:** 21.5k
+- **Vertices:** 20.8k
+- **FPS:** 100+
+
+The model ran at a stable 100+ FPS throughout all tests. The draw call count is substantially higher than the Dust3D version due to each separated part being its own draw call, but this is the direct trade-off for enabling full per-plank physics and the explosion interaction. Triangle count is comparable to the Blender version, reflecting a similar level of geometric detail.
 
 **Detailed testing documentation:**  
-[Unity – Model Import & Testing](./Wings3D/Wings3D_Testing_Documentation.md) *(placeholder – in preparation)*
+[Unity – Model Import & Testing](./Wings3D/Wings3D_Testing_Documentation.md)
+
+**In conclusion:**
+
+Wings3D sits comfortably in the middle of the compared tools. It is significantly more capable than Dust3D and produces a properly separated, interactive multi-part model that supports advanced physics behavior in Unity. However, it falls noticeably short of Blender in terms of workflow efficiency, quality-of-life features, PBR texturing support, and overall polish. It is a reasonable choice for straightforward hard-surface prop modeling when Blender is not an option, but its stagnant development, broken FBX export, and underpowered texturing pipeline make it difficult to recommend as a primary tool for serious game asset production.
 
 # Maya
 
@@ -162,29 +196,28 @@ Placeholder text
 
 Placeholder text
 
-| Aspect                    | Blender                                      | Dust3D                                                                 | Wings3D | Maya |
-|---------------------------|----------------------------------------------|------------------------------------------------------------------------|---------|------|
-| Price / License           | Free & Open Source                           | Free & Open Source                                                     | [TBD]   | [TBD] |
-| Learning Curve            | Steep at first, then fast                    | Extremely steep and frustrating (unintuitive node system)             | [TBD]   | [TBD] |
-| Modeling Workflow         | Intuitive and satisfying                     | Extremely fast for simple shapes, but very limited                     | [TBD]   | [TBD] |
-| PBR Texturing Workflow    | Easy to work with, add-ons (Node Wrangler)   | Extremely limited (only one texture per part, no real PBR)            | [TBD]   | [TBD] |
-| Polygon Reduction Tools   | Are available (Limited Dissolve, etc.)       | None (automatic merging only)                                          | [TBD]   | [TBD] |
-| Unity Import Experience   | Seamless                                     | Works but problematic (transparency fix needed, broken UVs on top/bottom, single mesh only) | [TBD]   | [TBD] |
+| Aspect                    | Blender                                      | Dust3D                                                                 | Wings3D                                                                 | Maya |
+|---------------------------|----------------------------------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|------|
+| Price / License           | Free & Open Source                           | Free & Open Source                                                     | Free & Open Source                                                      | [TBD] |
+| Learning Curve            | Steep at first, then fast                    | Extremely steep and frustrating (unintuitive node system)              | Moderate — familiar to Blender users but fewer quality-of-life features | [TBD] |
+| Modeling Workflow         | Intuitive and satisfying                     | Extremely fast for simple shapes, but very limited                     | Functional for hard-surface props; some operations feel unintuitive     | [TBD] |
+| PBR Texturing Workflow    | Easy to work with, add-ons (Node Wrangler)   | Extremely limited (only one texture per part, no real PBR)            | Underpowered and tedious; barely sufficient for basic PBR setup         | [TBD] |
+| Polygon Reduction Tools   | Are available (Limited Dissolve, etc.)       | None (automatic merging only)                                          | Minimal — no dedicated optimization tools                               | [TBD] |
+| Unity Import Experience   | Seamless                                     | Works but problematic (transparency fix needed, broken UVs on top/bottom, single mesh only) | Works via OBJ; manual material setup required; FBX export is broken     | [TBD] |
 
 **Final conclusions and recommendations** will be added once all tools are compared.
 
 # Repository Structure
-
 ```
 .
 ├── Blender/
 │   ├── Images                              # Images included in the documentations
-│   ├── Project and Model                   # Exported FBX Model and the .blend file
+│   ├── Project and Model                   # Exported .FBX Model and the .blend file
 │   ├── Blender_Model_Documentation.md      # Process of creating the model
 │   └── Blender_Testing_Documentation.md    # Process of testing the model in Unity
 ├── Dust3D/
 │   ├── Images                              # Images included in the documentations
-│   ├── Project and Model                   # Exported FBX Model and the .ds3 file
+│   ├── Project and Model                   # Exported .FBX Model and the .ds3 file
 │   ├── Dust3D_Model_Documentation.md       # Process of creating the model
 │   └── Dust3D_Testing_Documentation.md     # Process of testing the model in Unity
 ├── Maya/
@@ -198,6 +231,10 @@ Placeholder text
 |   ├── Packages
 |   └── ProjectSettings
 ├── Wings3D/
+│   ├── Images                              # Images included in the documentations
+│   ├── Project and Model                   # Exported .OBJ with .MTL Model and the .wings file
+│   ├── Wings3D_Model_Documentation.md      # Process of creating the model
+│   └── Wings3D_Testing_Documentation.md    # Process of testing the model in Unity
 ├── LICENSE
 └── README.md
 ```
