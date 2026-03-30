@@ -211,30 +211,29 @@ Placeholder text
 ```
 .
 ├── Blender/
-│   ├── Images                              # Images included in the documentations
-│   ├── Project and Model                   # Exported .FBX Model and the .blend file
-│   ├── Blender_Model_Documentation.md      # Process of creating the model
-│   └── Blender_Testing_Documentation.md    # Process of testing the model in Unity
+│   ├── Images
+│   ├── Project and Model                   # Exported .FBX (without embedded textures) Model and the .blend file
+│   ├── Blender_Model_Documentation.md
+│   └── Blender_Testing_Documentation.md
 ├── Dust3D/
-│   ├── Images                              # Images included in the documentations
+│   ├── Images
 │   ├── Project and Model                   # Exported .FBX Model and the .ds3 file
-│   ├── Dust3D_Model_Documentation.md       # Process of creating the model
-│   └── Dust3D_Testing_Documentation.md     # Process of testing the model in Unity
+│   ├── Dust3D_Model_Documentation.md
+│   └── Dust3D_Testing_Documentation.md
 ├── Maya/
 ├── Textures/                               # Textures used in all models
 |   ├── Metal
 |   └── Wood
-├── UnityTesting/                           # Testing Scene, scripts etc.
-|   ├── Assets/
-|       ├── Models                          # Only .meta file (Import needed)
-|       └── Textures                        # Only .meta files (Import needed)
+├── UnityTesting/                           # Testing Scene, Models, Scripts etc.
+|   ├── Assets
 |   ├── Packages
-|   └── ProjectSettings
+|   ├── ProjectSettings
+|   └── UserSettings
 ├── Wings3D/
-│   ├── Images                              # Images included in the documentations
+│   ├── Images
 │   ├── Project and Model                   # Exported .OBJ with .MTL Model and the .wings file
-│   ├── Wings3D_Model_Documentation.md      # Process of creating the model
-│   └── Wings3D_Testing_Documentation.md    # Process of testing the model in Unity
+│   ├── Wings3D_Model_Documentation.md
+│   └── Wings3D_Testing_Documentation.md
 ├── LICENSE
 └── README.md
 ```
