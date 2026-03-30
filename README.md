@@ -215,32 +215,32 @@ For indie developers and students working on games like *Barrelbound*, **Blender
 # Repository Structure
 ```
 .
-├── Barrelbound/                            # Unity Game made to test the created game assets
+├── Barrelbound/                  # Unity Game made to test the created game assets
 |   ├── Assets
 |   ├── Packages
 |   ├── ProjectSettings
 |   └── UserSettings
 ├── Blender/
 │   ├── Images
-│   ├── Project and Model                   # Exported .FBX (without embedded textures) Model and the .blend file
+│   ├── Project and Model         # Exported .FBX (without embedded textures) Model and the .blend file
 │   ├── Blender_Model_Documentation.md
 │   └── Blender_Testing_Documentation.md
 ├── Dust3D/
 │   ├── Images
-│   ├── Project and Model                   # Exported .FBX Model and the .ds3 file
+│   ├── Project and Model         # Exported .FBX Model and the .ds3 file
 │   ├── Dust3D_Model_Documentation.md
 │   └── Dust3D_Testing_Documentation.md
-├── Textures/                               # Textures used in all models
+├── Textures/                     # Textures used in all models
 |   ├── Metal
 |   └── Wood
-├── UnityTesting/                           # Testing Scene, Models, Scripts etc.
+├── UnityTesting/                 # Testing Scene, Models, Scripts etc.
 |   ├── Assets
 |   ├── Packages
 |   ├── ProjectSettings
 |   └── UserSettings
 ├── Wings3D/
 │   ├── Images
-│   ├── Project and Model                   # Exported .OBJ with .MTL Model and the .wings file
+│   ├── Project and Model         # Exported .OBJ with .MTL Model and the .wings file
 │   ├── Wings3D_Model_Documentation.md
 │   └── Wings3D_Testing_Documentation.md
 ├── LICENSE
