@@ -22,6 +22,8 @@ All modeling was performed using **metric units (millimeters)** to ensure game-r
 - Physics/collider setup
 - Visual quality in real-time
 
+---
+
 # Blender
 
 Blender is a free, open-source 3D creation suite that supports the full pipeline from modeling, UV unwrapping, texturing, animation, rendering to simulation.  
@@ -73,6 +75,8 @@ Overall, the testing confirmed that the Blender model is fully functional, visua
 
 The Blender barrel proved to be a high-quality, production-ready game asset. Thanks to clean topology, properly separated planks, full PBR materials, excellent UVs, and effective optimization, it delivers great visual fidelity, full interactivity (physics + explosion effect), and solid performance. It is clearly the superior and most professional solution for game development.
 
+---
+
 # Dust3D
 Dust3D is a free, open-source, node-based 3D modeling tool focused exclusively on rapid creation of very simple props using a parts-and-nodes workflow. It automatically generates basic UVs, supports only a single texture per part, and merges everything into one mesh on FBX export with embedded textures.
 
@@ -121,6 +125,8 @@ The model is significantly lighter than the Blender version, but the single-mesh
 **In conclusion:** 
 
 Dust3D is ideal **only** for very simple, quick modeling tasks where it performs well and extremely fast. Anything beyond the most basic shapes is highly not recommended – the severe limitations, outdated development, lack of tutorials, and unintuitive workflow will leave you frustrated.
+
+---
 
 # Wings3D
 
@@ -174,8 +180,6 @@ The model ran at a stable 100+ FPS throughout all tests. The draw call count is 
 
 Wings3D sits comfortably in the middle of the compared tools. It is significantly more capable than Dust3D and produces a properly separated, interactive multi-part model that supports advanced physics behavior in Unity. However, it falls noticeably short of Blender in terms of workflow efficiency, quality-of-life features, PBR texturing support, and overall polish. It is a reasonable choice for straightforward hard-surface prop modeling when Blender is not an option, but its stagnant development, broken FBX export, and underpowered texturing pipeline make it difficult to recommend as a primary tool for serious game asset production.
 
-**Here is the completed Comparison Summary section only:**
-
 ---
 
 # Comparison Summary
@@ -211,6 +215,8 @@ After creating the same wooden barrel asset in all three tools and thoroughly te
 - **Avoid Dust3D** for barrel-style props or any detailed work.
 
 For indie developers and students working on games like *Barrelbound*, **Blender** remains the best investment of time and produces the highest quality results.
+
+---
 
 # Repository Structure
 ```
