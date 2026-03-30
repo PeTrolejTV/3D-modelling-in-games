@@ -174,42 +174,52 @@ The model ran at a stable 100+ FPS throughout all tests. The draw call count is 
 
 Wings3D sits comfortably in the middle of the compared tools. It is significantly more capable than Dust3D and produces a properly separated, interactive multi-part model that supports advanced physics behavior in Unity. However, it falls noticeably short of Blender in terms of workflow efficiency, quality-of-life features, PBR texturing support, and overall polish. It is a reasonable choice for straightforward hard-surface prop modeling when Blender is not an option, but its stagnant development, broken FBX export, and underpowered texturing pipeline make it difficult to recommend as a primary tool for serious game asset production.
 
-# Maya
+**Here is the completed Comparison Summary section only:**
 
-Placeholder text
-
-## Model creation
-
-Placeholder text
-
-**Detailed step-by-step documentation:**  
-[Maya – Model Creation](./Maya/Maya_Model_Documentation.md) *(placeholder – in preparation)*
-
-## Testing in Unity
-
-Placeholder text
-
-**Detailed testing documentation:**  
-[Unity – Model Import & Testing](./Maya/Maya_Testing_Documentation.md) *(placeholder – in preparation)*
+---
 
 # Comparison Summary
 
-Placeholder text
+After creating the same wooden barrel asset in all three tools and thoroughly testing them in Unity (HDRP), clear differences emerged in workflow efficiency, asset quality, and suitability for real game development.
 
-| Aspect                    | Blender                                      | Dust3D                                                                 | Wings3D                                                                 | Maya |
-|---------------------------|----------------------------------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|------|
-| Price / License           | Free & Open Source                           | Free & Open Source                                                     | Free & Open Source                                                      | [TBD] |
-| Learning Curve            | Steep at first, then fast                    | Extremely steep and frustrating (unintuitive node system)              | Moderate — familiar to Blender users but fewer quality-of-life features | [TBD] |
-| Modeling Workflow         | Intuitive and satisfying                     | Extremely fast for simple shapes, but very limited                     | Functional for hard-surface props; some operations feel unintuitive     | [TBD] |
-| PBR Texturing Workflow    | Easy to work with, add-ons (Node Wrangler)   | Extremely limited (only one texture per part, no real PBR)            | Underpowered and tedious; barely sufficient for basic PBR setup         | [TBD] |
-| Polygon Reduction Tools   | Are available (Limited Dissolve, etc.)       | None (automatic merging only)                                          | Minimal — no dedicated optimization tools                               | [TBD] |
-| Unity Import Experience   | Seamless                                     | Works but problematic (transparency fix needed, broken UVs on top/bottom, single mesh only) | Works via OBJ; manual material setup required; FBX export is broken     | [TBD] |
+| Aspect                           | Blender                                      | Dust3D                                              | Wings3D                                              |
+|----------------------------------|----------------------------------------------|-----------------------------------------------------|------------------------------------------------------|
+| Price / License                  | Free & Open Source                           | Free & Open Source                                  | Free & Open Source                                   |
+| Learning Curve                   | Steep at first, then very fast               | Extremely steep and frustrating                     | Moderate (familiar to Blender users)                 |
+| Modeling Workflow                | Excellent, intuitive, non-destructive        | Extremely fast for basic shapes, very limited       | Functional                                           |
+| PBR Texturing Workflow           | Excellent (full node support + add-ons)      | Extremely limited (single texture only)             | Underpowered and tedious                             |
+| UV Unwrapping                    | Powerful and flexible                        | Automatic but broken on top/bottom                  | Functional                                           |
+| Polygon Reduction / Optimization | Strong tools (Decimate, Limited Dissolve)    | None                                                | Minimal                                              |
+| Multi-part / Separated Mesh      | Excellent                                    | Not possible (single merged mesh only)              | Good                                                 |
+| Export to Unity                  | Seamless FBX                                 | Problematic (transparency, broken UVs)              | Works via OBJ, (FBX broken)                          |
+| Performance in Unity             | 21.1k tris, well optimized                   | 3.6k tris, lightest but very limited                | 21.5k tris, well optimized                           |
+| Physics / Explosion Support      | Full support                                 | Not possible (single mesh)                          | Full support                                         |
+| Overall Suitability for Games    | Excellent                                    | Only for very basic prototypes                      | Acceptable                                           |
 
-**Final conclusions and recommendations** will be added once all tools are compared.
+### Final Conclusions and Recommendations
+
+**Blender** is the clear winner in this comparison. It offers the best balance of power, flexibility, and professional-grade results. The workflow becomes highly efficient once the initial learning curve is overcome, and it produces clean, optimized, fully interactive game-ready assets with proper PBR materials. For anyone serious about game asset creation, **Blender is the strongest recommendation** — especially since it is completely free as well.
+
+**Wings3D** sits in the middle. It successfully created a multi-part barrel that supports physics and explosion effects in Unity, making it noticeably more useful than Dust3D for gameplay purposes. However, its stagnant development, broken FBX export, and weak texturing tools make it feel outdated. It can be used as a secondary tool when you need a lightweight modeling experience, but it is not recommended as a primary tool for game development.
+
+**Dust3D** performed the worst for this type of asset. While it is extremely fast for very crude, low-detail props, its severe limitations (single mesh, single texture, broken UVs, outdated development) make it unsuitable for anything beyond the most basic prototyping. The lack of proper PBR support and inability to create separated meshes severely limits its usefulness in real game projects.
+
+**Final Recommendation:**
+
+- **Best choice overall**: **Blender** — Use this for all serious game asset creation.
+- **Only consider Wings3D** if you specifically need a very lightweight, right-click-focused modeling experience and can live with its limitations.
+- **Avoid Dust3D** for barrel-style props or any detailed work.
+
+For indie developers and students working on games like *Barrelbound*, **Blender** remains the best investment of time and produces the highest quality results.
 
 # Repository Structure
 ```
 .
+├── Barrelbound/                            # Unity Game made to test the created game assets
+|   ├── Assets
+|   ├── Packages
+|   ├── ProjectSettings
+|   └── UserSettings
 ├── Blender/
 │   ├── Images
 │   ├── Project and Model                   # Exported .FBX (without embedded textures) Model and the .blend file
@@ -220,7 +230,6 @@ Placeholder text
 │   ├── Project and Model                   # Exported .FBX Model and the .ds3 file
 │   ├── Dust3D_Model_Documentation.md
 │   └── Dust3D_Testing_Documentation.md
-├── Maya/
 ├── Textures/                               # Textures used in all models
 |   ├── Metal
 |   └── Wood
