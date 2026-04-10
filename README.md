@@ -218,6 +218,93 @@ For indie developers and students working on games like *Barrelbound*, **Blender
 
 ---
 
+# Barrelbound – Test Game
+
+To properly test the functionality and real-world usability of the created barrel models, a small puzzle-based game was developed called **Barrelbound**. This game serves as a practical demonstration of how the assets behave in an actual game environment and how their technical differences affect gameplay.
+
+<table>
+<tr><th width="100%">Barrelbound Main Menu</th></tr>
+<tr><td><img src="Barrelbound/Images/menu_screenshot.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+*Main menu of Barrelbound*
+
+### Controls
+- **WASD** – Movement  
+- **Space** – Jump  
+- **Left Shift** – Sprint  
+- **E** – Interact (activate buttons, pick up / drop objects)  
+- **ESC** – Pause menu  
+
+### Dev / Cheat Tools
+- **1** – Explode all Blender barrels  
+- **2** – Explode all Wings3D barrels  
+- **3** – Explode all Blender crates  
+- **X** – Shoot Blender crate forward from player's view  
+
+## About Barrelbound
+
+**Barrelbound** is a short, fun, and accessible 3D puzzle game created in Unity (HDRP). The core gameplay revolves around physical interaction with wooden barrels — rolling, throwing, stacking, and using them creatively to solve puzzles.
+
+The game consists of two levels with gradually increasing difficulty. Although it is not very long or extremely challenging, it is well-polished and enjoyable. It demonstrates various Unity development techniques including advanced physics interactions, UI systems, scene management, and gameplay mechanics.
+
+**Main features:**
+- Interactive elements (buttons, doors, lighting, moving platforms)
+- Multiple game menus (Pause, Death, End) with options to Resume, Restart, return to Main Menu, Quit, and toggle speedrun timer
+- Failure mechanics (Game Over) – falling into lava or being hit by enemy projectiles
+- Scene optimization by splitting the game into multiple scenes for faster loading
+- Checkpoint system implemented in various sections
+- Extended object interaction – objects serve as weights, platforms, or parts of larger mechanisms
+
+### Starting Area (Hub)
+
+<table>
+<tr><th width="100%">Starting Area (Exhibition Hub)</th></tr>
+<tr><td><img src="Barrelbound/Images/starting_area.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+*Starting exhibition hall with all three barrel variants displayed in showcases with information boards*
+
+The game begins in a small exhibition area where all three versions of the barrel (Blender, Wings3D, and Dust3D) are presented alongside informational panels describing their strengths and limitations.
+
+### Level 1 – Collection Puzzle
+
+<table>
+<tr><th width="100%">Level 1 – Collection Puzzle</th></tr>
+<tr><td><img src="Barrelbound/Images/level1_puzzle.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+*First level – collection area puzzle*
+
+In the first level, the player must throw barrels at walls to break them into individual planks. Only the destroyed barrels count toward the objective (e.g. filling collection zones with a required number of pieces). This level perfectly demonstrates the advantage of multi-part meshes from Blender and Wings3D compared to the single-mesh limitation of the Dust3D model.
+
+### Level 2 – Lava Crossing
+
+<table>
+<tr><th width="100%">Level 2 – Lava Crossing Puzzle</th></tr>
+<tr><td><img src="Barrelbound/Images/level2_lava_puzzle.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+*Second level – lava crossing puzzle*
+
+This section combines precise platforming, timing, and strategic object usage. The player must activate pressure plates to open doors, build paths across lava using barrels, and carefully navigate moving and collapsing platforms. Strong physics assets are essential for smooth and satisfying gameplay in this level.
+
+### Creative Use of Dust3D Model
+
+<table>
+<tr><th width="100%">Creative Use of Dust3D Barrel – Minigun Enemy</th></tr>
+<tr><td><img src="Barrelbound/Images/death_minigun.png" style="width:100%; height:auto;"></td></tr>
+</table>
+
+*Player death – being shot by minigun firing Dust3D barrels*
+
+As a fun example of turning technical limitations into a feature, the single-mesh Dust3D barrel was used as ammunition for a minigun enemy (with a modified material). This shows how even constraints can be creatively utilized in game design.
+
+**Summary:**  
+Barrelbound successfully demonstrated the real gameplay impact of the quality and structure of the 3D models. It clearly showed how the choice of modeling tool directly influences the possibilities, feel, and overall player experience of the final game.
+
+---
+
 # Repository Structure
 ```
 .
