@@ -310,6 +310,7 @@ Barrelbound successfully demonstrated the real gameplay impact of the quality an
 .
 ├── Barrelbound/                  # Unity Game made to test the created game assets
 |   ├── Assets
+|   ├── Images
 |   ├── Packages
 |   ├── ProjectSettings
 |   └── UserSettings
