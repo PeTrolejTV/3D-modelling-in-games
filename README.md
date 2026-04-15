@@ -229,6 +229,15 @@ To properly test the functionality and real-world usability of the created barre
 
 *Main menu of Barrelbound*
 
+## How to Play (Download & Run)
+
+1. Go to the **[Releases](https://github.com/PeTrolejTV/3D-modelling-in-games/releases/tag/v1.0.0)** section of this repository (on the right side).
+2. Download the latest version — look for the file `Barrelbound_v1.0.0_Windows.zip` under **Assets**.
+3. Extract the zip file to any folder.
+4. Run `Barrelbound.exe`.
+
+> **Note:** On the first launch, Windows Defender may show a warning. Click **"More info"** → **"Run anyway"**.
+
 ### Controls
 - **WASD** – Movement  
 - **Space** – Jump  
