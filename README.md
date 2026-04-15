@@ -236,7 +236,9 @@ To properly test the functionality and real-world usability of the created barre
 3. Extract the zip file to any folder.
 4. Run `Barrelbound.exe`.
 
-> **Note:** On the first launch, Windows Defender may show a warning. Click **"More info"** → **"Run anyway"**.
+> **Note:** On first launch, Windows Defender may show a warning. Click "More info" → "Run anyway".
+
+> The first launch of the game may also take longer than expected. This is normal, as the game is loading and compiling shaders and other necessary assets in the background. Subsequent launches will be significantly faster.
 
 ### Controls
 - **WASD** – Movement  
